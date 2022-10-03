@@ -1,9 +1,13 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Diagnostics;
 using System.Runtime.CompilerServices;
+using WebApi2.Model.Danual;
 using WebApi2.Services;
 
 namespace WebApi2.Controllers
 {
+    
     [ApiController]
     [Route("[controller]")]
     public class WeatherForecastController : ControllerBase
@@ -23,34 +27,31 @@ namespace WebApi2.Controllers
         [HttpGet(Name = "GetWeatherForecast")]
         public IEnumerable<WeatherForecast> Get()
         {
+            //EbayListing myebaylisting = new EbayListing();
+            //Product product = new Product();
+
+            //product = myebaylisting;
+
+            //myebaylisting = (EbayListing)product;
 
 
 
+            //TestClass test1 = new TestClass { FirstName = "Miriam", LastName = "Waymire", Place = 1 };
+            //TestClass test2 = new TestClass { FirstName = "Keith", LastName = "Wilson", Place = 2 };
 
+            //List <TestClass> testClasses = new List<TestClass>();
 
+            //testClasses.Add(test1);
+            //testClasses.Add(test2);
 
-            TestClass test1 = new TestClass { FirstName = "Miriam", LastName = "Waymire", Place = 1 };
-            TestClass test2 = new TestClass { FirstName = "Keith", LastName = "Wilson", Place = 2 };
-
-            List<TestClass> testClasses = new List<TestClass>();
-
-            testClasses.Add(test1);
-            testClasses.Add(test2);
-
-            return null;
-
-            //string mystring = string.Empty;
-
-            //EbayService myebayservice = new EbayService();
-
-
-            //return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-            //{
-            //    Date = DateTime.Now.AddDays(index),
-            //    TemperatureC = Random.Shared.Next(-20, 55),
-            //    Summary = Summaries[Random.Shared.Next(Summaries.Length)]
-            //})
-            //.ToArray();
+            //return null;
+            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
+            {
+                Date = DateTime.Now.AddDays(index),
+                TemperatureC = Random.Shared.Next(-20, 55),
+                Summary = Summaries[Random.Shared.Next(Summaries.Length)]
+            })
+            .ToArray();
         }
     }
 
